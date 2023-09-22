@@ -24,19 +24,13 @@ function asideFunction(){
   }
   }
 
-  // cari elemen toggle menu
   var menuToggle = document.querySelector('.menu-toggle input');
-  // cari elemen sidebar
   var sidebarNav = document.querySelector('#sidebar-nav');
 
-  // tambahkan event listener pada tombol toggle menu
   menuToggle.addEventListener('click', function() {
-    // jika tombol toggle menu di check
     if (this.checked) {
-      // tampilkan sidebar
       sidebarNav.classList.add('show');
     } else {
-      // sembunyikan sidebar
       sidebarNav.classList.remove('show');
     }
   });

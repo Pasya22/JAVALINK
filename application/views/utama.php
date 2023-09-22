@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="kotak-login">
-                        <a href="">Login</a>
+                        <a href="<?= site_url('Login'); ?>">Login</a>
                     </div>
                     <div class="menu-toggle">
                         <input type="checkbox">
@@ -348,5 +348,5 @@
         </div>
     </div>
 </div>
-
+ 
 <!-- ---------------------------------END FOOTER--------------------------------------- -->

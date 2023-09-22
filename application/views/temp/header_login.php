@@ -10,7 +10,7 @@
     <!-- <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script> -->
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?=base_url()?>css/style-login.scss" />
+    <link rel="stylesheet" href="<?=base_url()?>css/style-login.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,6 +31,7 @@
         background-size: cover;
         background-attachment: fixed;
       }
+      
     </style>
     <!-- <link rel="stylesheet" href="<?=base_url()?>asset/css/style.css"> -->
     <title><?=$title?></title>

@@ -1,0 +1,42 @@
+--------------------------- Minggu pertama ---------------------------------
+Frontend :
+    Membuat Halaman Utama (landing pages)
+    Membuat Halaman Login (UI,Transisi,form)
+    Membuat Halaman Register (UI,Transisi,form)
+    Membuat Halaman LupaKatasandi (UI,Transisi,form)
+
+Backend :
+    membuat database
+    membuat tabel(register,login,konten)
+    Fungsi Login 
+    Fungsi LupaKatasandi
+    Fungsi Register
+ --------------------------- Minggu Kedua ----------------------------------
+ Frontend :
+    Menambahkan Background (landing pages,Halaman Login, Halaman Register)
+    Menambahkan Fitur Login dan Register (Menggunakan Google dan Nomor telephone) 
+    Membuat Halaman admin 
+
+    Landing Server Side  : 
+       Navbar (name user, icon user)
+       Sidebar (UI,Transisi,Toogle Menu)
+       Fitur menu dan menu icon 
+       Menambahkan isi konten/tampilan dalam menu
+       membuat form add menu,add menu konten,grid menu
+
+
+Backend :
+    Fungsi Login menggunakan Google
+    Fungsi Register menggunakan Google
+
+    Landing Server Side :
+       Session User data admin/user
+       Fungsi Slice konten dalam menu
+       Fungsi form_validasi dan fungsi tambah data
+
+------------------------- Minggu Ketiga -----------------------------------
+Frontend :
+  
+
+Backend :
+   

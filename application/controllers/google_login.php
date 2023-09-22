@@ -12,7 +12,18 @@ class google_login extends CI_Controller
 
     public function index()
     {
-        $this->load->view('google_login');
+        if ($this->session->userdata('Login')) {
+            if ($this->session->userdata('role_id') == 2) {
+                redirect(site_url('google_login/authenticate'));
+            } else {
+                redirect(site_url('guest'));
+            }
+        } else {
+            $data['title'] = 'Jw-Link - Login';
+            $this->load->view('temp/header_login', $data);
+            $this->load->view('Login/VLogin', $data);
+            $this->load->view('temp/footer_login', $data);
+        }
     }
 
     public function authenticate()
@@ -34,26 +45,29 @@ class google_login extends CI_Controller
             $email = $data['email'];
             $name = $data['name'];
 
-            $CekDataLoginGoogle = $this->Model->GetDataWhere('login', 'email', $email);
-            if ($CekDataLoginGoogle->num_rows() > 0) {
-                $update = array(
-                    'email' => $email,
-                    'nama_pengguna' => $name,
-                );
-                $this->Model->UpdateData('login', 'email', $email, $update);
-                redirect(site_url('Welcome'));
-            } else {
+            $existingUser = $this->Model->GetDataWhere('login','email',$email);
+            if (!$existingUser) {
+                date_default_timezone_set('Asia/Jakarta'); # add your city to set local time zone
+                $now = date('Y-m-d H:i:s');
                 $add = array(
                     'email' => $email,
                     'nama_pengguna' => $name,
+                    'images' => 'default.jpg',
+                    'role_id' => 2,
+                    'is_active' => 1,
+                    'date_created' => $now,
                 );
                 // send data to database
                 $this->Model->AddData('login', $add);
-                // Atur data sesi dan arahkan ulang
-                $this->session->set_userdata('Login', 'OnLogin');
-                $this->session->set_userdata('nama_pengguna', $name);
-                redirect(site_url('Welcome'));
+                
             }
+
+            // Akun sudah aktif, atur data sesi dan arahkan ulang
+            $this->session->set_userdata('Login', 'OnLogin');
+            $this->session->set_userdata('role_id', 2);
+            $this->session->set_userdata('nama_pengguna', $name);
+            redirect(site_url('guest'));
+
         } elseif (isset($_GET['logout'])) {
             // Hapus token akses yang tersimpan
             $this->session->unset_userdata('access_token');
@@ -69,6 +83,7 @@ class google_login extends CI_Controller
     public function Logout()
     {
         $this->session->unset_userdata('access_token');
+        $this->session->unset_userdata('role_id');
         $this->session->unset_userdata('Login');
         redirect(site_url('Login'));
     }
